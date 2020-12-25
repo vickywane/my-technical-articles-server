@@ -6,6 +6,9 @@ import { Movie, testData } from "./schema";
 const app = express();
 
 app.get("/create-movies", (req, res) => {
+
+  res.status(200).send({ response : "MOVIES ALREADY EXIST" })
+
   // const length = testData.length;
   // testData.forEach((data, index) => {
   //   const newMovie = new Movie({
