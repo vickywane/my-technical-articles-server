@@ -3,10 +3,9 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import bodyParser from "body-parser";
-import Routes from "./routes";
-import Agent from "./agent";
+import DialogflowWine from "./route/dialogflow-wine/dialogfow-wine-routes";
 
-import TwilioMovieReminder from './route/twilio-movie/twilio-movie-reminder-routes'
+import TwilioMovieReminder from "./route/twilio-movie/twilio-movie-reminder-routes";
 
 dotenv.config();
 const app = express();
@@ -36,16 +35,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/twilio-movie-reminder/", TwilioMovieReminder);
-app.use("/api/routes", Routes);
-app.use("/api/agent", Agent);
+app.use("/api/dialogflow-wine", DialogflowWine);
 
 app.all("/", (req, res) => {
-  res
-    .status(200)
-    .send({
-      response:
-        "My articles server. Add a specific route to your request to hit an endpoint ",
-    });
+  res.status(200).send({
+    response:
+      "My articles server. Add a specific route to your request to hit an endpoint ",
+  });
 });
 
 app.listen(PORT, () => console.log(`🔥  server running on port ${PORT}`));
