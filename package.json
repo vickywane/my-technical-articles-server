@@ -15,6 +15,7 @@
         "connect-busboy": "^0.0.2",
         "cors": "^2.8.5",
         "dotenv": "^8.2.0",
+        "esm": "3.2.25",
         "express": "^4.17.1",
         "express-fileupload": "^1.2.0",
         "mongodb": "^3.6.3",
@@ -23,7 +24,6 @@
         "uuid": "^8.3.1"
     },
     "devDependencies": {
-        "esm": "^3.2.25",
         "nodemon": "^2.0.6"
     }
 }
