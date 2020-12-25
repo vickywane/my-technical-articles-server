@@ -6,6 +6,8 @@ import bodyParser from "body-parser";
 import Routes from "./routes";
 import Agent from "./agent";
 
+import TwilioMovieReminder from './route/twilio-movie/twilio-movie-reminder-routes'
+
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -33,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+app.use("/api/twilio-movie-reminder/", TwilioMovieReminder);
 app.use("/api/routes", Routes);
 app.use("/api/agent", Agent);
 
