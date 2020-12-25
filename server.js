@@ -36,4 +36,13 @@ app.use(bodyParser.json());
 app.use("/api/routes", Routes);
 app.use("/api/agent", Agent);
 
+app.all("/", (req, res) => {
+  res
+    .status(200)
+    .send({
+      response:
+        "My articles server. Add a specific route to your request to hit an endpoint ",
+    });
+});
+
 app.listen(PORT, () => console.log(`🔥  server running on port ${PORT}`));
