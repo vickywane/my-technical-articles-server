@@ -1,4 +1,4 @@
-const test = [
+export const  SAMPLE_WINES = [
   {
     name: "White Burgundy",
     category: "Dry white wine",
@@ -77,5 +77,3 @@ const test = [
       "https://res.cloudinary.com/dkfptto8m/image/upload/v1607130312/wine/pinot-noir-removebg-preview.png",
   },
 ];
-
-export default test;

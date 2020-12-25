@@ -10,6 +10,7 @@ import util from "util";
 import { pipeline, Transform } from "stream";
 import busboy from "connect-busboy";
 import WineModel from "./schema";
+import { SAMPLE_WINES } from "./sample";
 
 const app = express();
 
@@ -18,6 +19,18 @@ app.use(
     immediate: true,
   })
 );
+
+app.get("/seed-wines", (req, res) => {
+  SAMPLE_WINES.forEach((data, index) => {
+    const newWine = new WineModel(data);
+
+    newWine.save().then(() => {
+      if (SAMPLE_WINES.length === index + 1) {
+        res.status(200).send({ response: "WINES SAVED" });
+      }
+    });
+  });
+});
 
 app.get("/get-all-wines", (req, res) => {
   WineModel.find({}, (err, data) => {
